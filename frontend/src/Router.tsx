@@ -1,20 +1,19 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import {
-  CustomRouter,
-} from './components/routes';
-import { SignIn } from './pages/auth/sign-in';
-import { SignUp } from './pages/auth/sign-up';
+import {Route, Routes, } from 'react-router-dom';
+import { HistoryRouter } from 'redux-first-history/rr6';
+import {SignIn} from './pages/auth/sign-in';
+import {SignUp} from './pages/auth/sign-up';
+import {history} from "./store/root";
 
 const Router = () => (
-  <CustomRouter>
-    <Routes>
+    <HistoryRouter history={history}>
+        <Routes>
 
-        <Route path='/sign-in' element={<SignIn />} />
-        <Route path='/sign-up' element={<SignUp />}/>
+            <Route path='/sign-in' element={<SignIn/>}/>
+            <Route path='/sign-up' element={<SignUp/>}/>
 
-    </Routes>
-  </CustomRouter>
+        </Routes>
+    </HistoryRouter>
 );
 
 export default Router;
